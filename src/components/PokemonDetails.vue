@@ -1,6 +1,5 @@
 <template>
     <div class="details">
-
       <div class="details__view" v-if="show">
         <div v-if="pokemon" class="details__image">
           <img :src="imageURL + pokemon.id + '.png'" alt="">
@@ -39,7 +38,6 @@
         <h2 v-else>The pokemon was not found</h2>
         <button class="details__btn-close" @click="closeDetails">close</button>
       </div>
-      <i v-else class="fas fa-spinner fa-spin"></i>
     </div>
 </template>
 

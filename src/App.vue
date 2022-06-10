@@ -1,9 +1,15 @@
 <template>
   <div class="section">
-    <PokemonSearch :apiURL="apiURL"  @setPokemonUrl="setPokemonUrl" />
-    <PokemonList :imageURL="imageURL" :apiURL="apiURL" @setPokemonUrl="setPokemonUrl"/>
+    <PokemonSearch :apiURL="apiURL"
+                   @setPokemonUrl="setPokemonUrl" />
+    <PokemonList :imageURL="imageURL"
+                 :apiURL="apiURL"
+                 @setPokemonUrl="setPokemonUrl"/>
     <transition name="slide-fade" appear>
-      <PokemonDetails v-if="showDetails" :imageURL="imageURL" :pokemonUrl="pokemonUrl" @closeDetails="closeDetails" />
+      <PokemonDetails v-if="showDetails"
+                      :imageURL="imageURL"
+                      :pokemonUrl="pokemonUrl"
+                      @closeDetails="closeDetails" />
     </transition>
   </div>
 </template>
@@ -38,23 +44,14 @@ export default {
       this.showDetails = false;
     }
   },
-  watch: {
-    pokemon: {
-      handler() {
-        localStorage.setItem('pokemons',JSON.stringify(this.pokemonUrl))
-      },
-      deep: true
-    }
-  },
-  mounted() {
-    if (localStorage.getItem("pokemons")){
-      this.books = JSON.parse(localStorage.getItem("pokemons"))
-    }
-  }
 }
 </script>
 
 <style lang="scss">
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+#app {
+  font-family: 'Montserrat', sans-serif;
+}
 *{
   margin: 0;
   padding: 0;
@@ -69,11 +66,9 @@ body {
 .slide-fade-enter-active {
   transition: all 0.3s ease-out;
 }
-
 .slide-fade-leave-active {
   transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
-
 .slide-fade-enter-from,
 .slide-fade-leave-to {
   transform: translateX(20px);

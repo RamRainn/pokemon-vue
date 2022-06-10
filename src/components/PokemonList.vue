@@ -4,7 +4,7 @@
               :key="'poke'+index"
     @click="setPokemonUrl(pokemon.url)">
       <img class="list__image" :src="imageURL + pokemon.id + '.png'" alt="">
-            <h3>{{pokemon.name}}</h3>
+            <h3 class="list__title">{{pokemon.name}}</h3>
     </div>
     <div id="scroll-trigger" ref="infinitescrolltrigger">
       <div class="list__loader"></div>
@@ -103,6 +103,9 @@ export default {
     text-transform: capitalize;
     border-radius: 10px;
     cursor: pointer;
+  }
+  &__title{
+    font-weight: 700;
   }
   &__card:hover{
     background-color: #a4a7db;
